@@ -20,17 +20,17 @@ WHERE BusinessEntityID IN (100, 107, 200, 2210)
 
 SELECT * 
 FROM Person.Person
-WHERE MiddleName IN ('B','M','T',)
+WHERE MiddleName IN ('B','M','T')
 
 --
 SELECT * FROM Person.Person
-WHERE WHERE LastName LIKE '%e'
+WHERE LastName LIKE '%e'
 --
 SELECT * FROM Person.Person
-WHERE WHERE LastName LIKE '[RA]%e'
+WHERE LastName LIKE '[RA]%e'
 --
 SELECT * FROM Person.Person
-WHERE WHERE LastName LIKE '[RA]__e'
+WHERE LastName LIKE '[RA]__e'
 
 --
 SELECT DISTINCT Title FROM Person.Person
