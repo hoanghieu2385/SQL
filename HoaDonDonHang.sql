@@ -138,7 +138,7 @@ SELECT Count(NameCus) AS So_khach_hang_da_mua FROM Customer
 SELECT Count(NameCus) AS So_khach_hang_da_mua FROM Customer
 
 ------------------------------------------------ 6-c
-SELECT O.OderID, SUM(OD.PriceSale * OD.Quantity) AS TotalAmount
+SELECT O.OderID, SUM(OD.PriceSale * OD.Quantity) AS TongTienTungDonHang
 FROM OderDetails OD
 JOIN Oder O ON OD.OderID = O.OderID
 GROUP BY O.OderID;

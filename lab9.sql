@@ -137,4 +137,34 @@ GROUP BY NV.MaPB
 ORDER BY SoLuongNhanVien DESC;
 
 -- Tính tổng số lượng của các nhân viên trong phòng 2.
+SELECT PB.TenPB, COUNT(NV.MaNV) AS TongSoLuongNhanVien
+FROM PhongBan PB
+JOIN NhanVien NV ON PB.MaPB = NV.MaPB
+WHERE PB.MaPB = '2'
+GROUP BY PB.TenPB;
 
+
+-- Xoá dự án có mã dự án là 99.
+DELETE FROM LuongDA WHERE MaDA='099'
+SELECT MaDA FROM LuongDA
+
+
+--Xoá đi từ bảng LuongDA những nhân viên có mức lương 2000.
+DELETE FROM LuongDA WHERE SoTien='2000'
+SELECT * FROM LuongDA
+
+
+--Cập nhật lại lương cho những người tham gia dự án 001 thêm 10% lương cũ.
+UPDATE LuongDA
+SET SoTien = SoTien * 1.1
+WHERE MaDA = '001';
+SELECT * FROM LuongDA
+
+
+-- Xoá các bản ghi tương ứng từ bảng NhanVien đối với những nhân viên không có mã nhân viên tồn tại trong bảng LuongDA.
+DELETE FROM NhanVien
+WHERE NOT EXISTS (
+    SELECT 1
+    FROM LuongDA
+    WHERE LuongDA.MaNV = NhanVien.MaNV
+);
